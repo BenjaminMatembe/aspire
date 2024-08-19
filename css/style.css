@@ -1583,6 +1583,31 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
+/* <style> */
+/* Base styles for the button */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff; /* Text color */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Green color for the button */
+.btn-primary {
+    background-color: #28a745; /* Green background */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+/* Green color on hover */
+.btn-primary:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+/* </style> */
+
 
 /* toggle */
 .hidden {
