@@ -205,3 +205,36 @@
 
 })(jQuery);
 
+{/* <script> */}
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.getElementById('toggle-btn');
+    const servicesContainer = document.getElementById('services-container');
+    const allServices = Array.from(servicesContainer.children); // Get all service cards
+    const initialVisibleCount = 6;
+
+    // Initially show only the first 6 services
+    allServices.forEach((service, index) => {
+        if (index >= initialVisibleCount) {
+            service.classList.add('hidden');
+        }
+    });
+
+    toggleButton.addEventListener('click', function() {
+        if (toggleButton.textContent === 'Show More') {
+            // Show all services
+            allServices.forEach(service => {
+                service.classList.remove('hidden');
+            });
+            toggleButton.textContent = 'Show Less';
+        } else {
+            // Hide all services beyond the initial visible count
+            allServices.forEach((service, index) => {
+                if (index >= initialVisibleCount) {
+                    service.classList.add('hidden');
+                }
+            });
+            toggleButton.textContent = 'Show More';
+        }
+    });
+});
+// </script>

@@ -71,6 +71,8 @@ h6 {
 
 /* Prelaoder */
 
+
+
 #preloader {
   position: fixed;
   top: 0;
@@ -1580,3 +1582,11 @@ body.mobile-nav-active #mobile-nav-toggle {
     display: inline;
   }
 }
+
+
+/* toggle */
+.hidden {
+  display: none;
+}
+
+/* toggle */
