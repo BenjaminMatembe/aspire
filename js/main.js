@@ -206,35 +206,34 @@
 })(jQuery);
 
 {/* <script> */}
-document.addEventListener("DOMContentLoaded", function() {
-    const toggleButton = document.getElementById('toggle-btn');
-    const servicesContainer = document.getElementById('services-container');
-    const allServices = Array.from(servicesContainer.children); // Get all service cards
-    const initialVisibleCount = 6;
+$(document).ready(function() {
+  var $toggleButton = $('#toggle-btn');
+  var $servicesContainer = $('#services-container');
+  var $allServices = $servicesContainer.children(); // Get all service cards
+  var initialVisibleCount = 6;
 
-    // Initially show only the first 6 services
-    allServices.forEach((service, index) => {
-        if (index >= initialVisibleCount) {
-            service.classList.add('hidden');
-        }
-    });
+  // Initially show only the first 6 services
+  $allServices.each(function(index) {
+      if (index >= initialVisibleCount) {
+          $(this).addClass('hidden');
+      }
+  });
 
-    toggleButton.addEventListener('click', function() {
-        if (toggleButton.textContent === 'Show More') {
-            // Show all services
-            allServices.forEach(service => {
-                service.classList.remove('hidden');
-            });
-            toggleButton.textContent = 'Show Less';
-        } else {
-            // Hide all services beyond the initial visible count
-            allServices.forEach((service, index) => {
-                if (index >= initialVisibleCount) {
-                    service.classList.add('hidden');
-                }
-            });
-            toggleButton.textContent = 'Show More';
-        }
-    });
+  $toggleButton.on('click', function() {
+      if ($toggleButton.text() === 'Show More') {
+          // Show all services
+          $allServices.removeClass('hidden');
+          $toggleButton.text('Show Less');  
+      } else {
+          // Hide all services beyond the initial visible count
+          $allServices.each(function(index) {
+              if (index >= initialVisibleCount) {
+                  $(this).addClass('hidden');
+              }
+          });
+          $toggleButton.text('Show More');
+      }
+  });
 });
+
 // </script>
